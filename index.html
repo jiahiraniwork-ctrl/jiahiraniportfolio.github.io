@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jia – Product Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #ffffff;
+      --text-muted: #aaaaaa;
+      --overlay: rgba(0,0,0,0.85);
+      --accent: #00ff9d; /* subtle green accent if you want */
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: var(--text); text-decoration: none; transition: color 0.3s; }
+    a:hover { color: var(--accent); }
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 5vw; }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.5rem 0;
+      transition: all 0.4s ease;
+      background: transparent;
+    }
+    nav.scrolled {
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo { font-size: 1.5rem; font-weight: 800; }
+    nav ul { display: flex; list-style: none; gap: 2.5rem; }
+    nav ul li a { font-weight: 500; opacity: 0.9; }
+
+    /* Hero */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 5vw;
+    }
+    #hero h1 {
+      font-size: clamp(5rem, 15vw, 12rem);
+      font-weight: 900;
+      line-height: 0.9;
+      margin-bottom: 1rem;
+    }
+    #hero p.tagline {
+      font-size: clamp(1.5rem, 4vw, 3rem);
+      opacity: 0.85;
+      max-width: 800px;
+      margin: 1rem 0 2rem;
+    }
+    #hero .sub {
+      font-size: 1.2rem;
+      max-width: 600px;
+      opacity: 0.7;
+    }
+
+    /* Sections */
+    section { padding: 12rem 0; }
+    h2 {
+      text-align: center;
+      font-size: clamp(3rem, 8vw, 6rem);
+      margin-bottom: 6rem;
+      font-weight: 800;
+    }
+
+    /* Projects */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 4rem;
+    }
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.5rem;
+      cursor: pointer;
+      transition: all 0.45s cubic-bezier(0.22,1,0.36,1);
+    }
+    .project-card:hover {
+      transform: scale(1.04) translateY(-1rem);
+      box-shadow: 0 3rem 6rem -2rem rgba(0,0,0,0.8);
+    }
+    .project-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 30%, var(--overlay) 70%);
+      opacity: 0;
+      transition: opacity 0.45s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3rem 2.5rem;
+    }
+    .project-card:hover .overlay { opacity: 1; }
+    .overlay h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .overlay .meta { font-size: 1rem; color: var(--text-muted); }
+
+    /* About & Contact */
+    #about, #contact { text-align: center; }
+    #about p, #contact p { font-size: 1.4rem; max-width: 800px; margin: 0 auto 2rem; opacity: 0.9; }
+
+    /* Fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(6rem);
+      transition: all 1.2s cubic-bezier(0.16,1,0.3,1);
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul { gap: 1.5rem; font-size: 0.95rem; }
+      section { padding: 8rem 0; }
+      h2 { margin-bottom: 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="container">
+      <div class="logo">Jia</div>
+      <ul>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <h1>Jia</h1>
+    <p class="tagline">Product Designer</p>
+    <p class="sub">Figuring out how humans think, feel, and interact. Turning ideas into experiences that stick.</p>
+  </section>
+
+  <section id="projects" class="fade-in">
+    <div class="container">
+      <h2>Selected Work</h2>
+      <div class="project-grid">
+        <!-- Add your real projects here later – copy-paste cards -->
+        <div class="project-card">
+          <img src="https://via.placeholder.com/1200x800/111111/444444?text=Project+One" alt="Project 1">
+          <div class="overlay">
+            <h3>CBSE Redesign</h3>
+            <div class="meta">2025 • Website Redesign</div>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://via.placeholder.com/1200x800/111111/444444?text=Project+Two" alt="Project 2">
+          <div class="overlay">
+            <h3>Micro-Site Campaign</h3>
+            <div class="meta">2024 • Micro-site</div>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://via.placeholder.com/1200x800/111111/444444?text=Project+Three" alt="Project 3">
+          <div class="overlay">
+            <h3>Ongoing Exploration</h3>
+            <div class="meta">2026 • In Progress</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="fade-in">
+    <div class="container">
+      <h2>About</h2>
+      <p>I think deeply. I design intentionally. I build with care.</p>
+      <p>Focused on creating meaningful digital products that solve real problems and feel human.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="fade-in">
+    <div class="container">
+      <h2>Say Hi</h2>
+      <p><a href="mailto:your@email.com">your@email.com</a></p>
+      <p>
+        <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a> • 
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> • 
+        <a href="https://behance.net/yourprofile" target="_blank">Behance</a>
+      </p>
+    </div>
+  </section>
+
+  <script>
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80);
+    });
+
+    // Fade-in observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '-100px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Simple stagger for project cards
+    document.querySelectorAll('.project-card').forEach((card, i) => {
+      card.style.transitionDelay = `${i * 0.15}s`;
+    });
+  </script>
+</body>
+</html>
